@@ -31,15 +31,15 @@ colors.setup = function(config)
 
   -- Additional background colors
   base.bg_popup = base.bg_dark
-  base.bg_visual = utils.darken("#67aec9", 0.2)
+  base.bg_visual = utils.darken(base.blue, 0.4)
   base.bg_sidebar = config.darken_sidebars and base.bg_dark or base.bg
   base.bg_float = config.darken_floats and base.bg_dark or base.bg
 
   -- Diff colors, used by Git-related plugins
   local diff = {
-    add = utils.lighten(base.green, 0.15),
-    change = utils.lighten(base.orange, 0.15),
-    delete = utils.lighten(base.red, 0.15),
+    add = utils.darken(base.green, 0.15),
+    change = utils.darken(base.orange, 0.15),
+    delete = utils.darken(base.red, 0.15),
   }
 
   -- Diagnostics (errors, warnings, etc)
