@@ -18,8 +18,6 @@ theme.setup = function(config)
   config = config or require("doombox.config").configuration
   local integrations = config.integrations
 
-  print(config.transparent_background)
-
   -- Theme colors
   local c = require("doombox.colors").setup(config)
   local cb = c.base
