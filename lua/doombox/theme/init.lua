@@ -70,8 +70,8 @@ theme.setup = function(config)
     StatusLinePartNC = { fg = cb.fg_alt, bg = cb.bg_popup, style = "bold" },
 
     Pmenu = { fg = cb.fg, bg = cb.bg_highlight },
-    PmenuSel = { fg = cb.grey, bg = cb.blue },
-    PmenuSelBold = { fg = cb.grey, bg = cb.blue, style = "bold" },
+    PmenuSel = { fg = cb.fg_alt, bg = cb.bg_popup },
+    PmenuSelBold = { fg = cb.fg_alt, bg = cb.bg_popup, style = "bold" },
     PmenuSbar = { bg = cb.bg_alt },
     PmenuThumb = { bg = cb.fg },
 
