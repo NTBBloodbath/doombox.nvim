@@ -41,7 +41,6 @@ config.set = function(user_configs)
   vim.validate({ user_configs = { user_configs, "table" } })
 
   config.configuration = vim.tbl_deep_extend("force", config.configuration, user_configs)
-  return config.configuration
 end
 
 return config

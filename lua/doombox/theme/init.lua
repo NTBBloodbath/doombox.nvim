@@ -14,9 +14,11 @@ local function apply_highlight(group, colors)
   vim.cmd(string.format("hi %s %s %s %s %s", group, bg, fg, sp, gui))
 end
 
-theme.setup = function(user_configs)
-  local config = require("doombox.config").set(user_configs or {})
+theme.setup = function(config)
+  config = config or require("doombox.config").configuration
   local integrations = config.integrations
+
+  print(config.transparent_background)
 
   -- Theme colors
   local c = require("doombox.colors").setup(config)
