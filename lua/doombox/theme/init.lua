@@ -1,6 +1,10 @@
 -- @class theme
 local theme = {}
 
+local function none_to_upper(str)
+  return str:gsub("none", "NONE")
+end
+
 local function apply_highlight(group, colors)
   if colors.link then
     vim.cmd(string.format("hi! link %s %s", group, colors.link))
@@ -106,15 +110,15 @@ theme.setup = function(config)
     URL = { link = "Link" },
     Underlined = { fg = cb.blue, style = "underline" },
 
-    Comment = { fg = cb.grey, style = config.styles.comments },
+    Comment = { fg = cb.grey, style = none_to_upper(config.styles.comments) },
     CommentBold = { fg = cb.grey, style = "bold" },
     SpecialComment = { fg = cb.fg_alt, style = "bold" },
 
     Macro = { fg = cb.violet },
-    Define = { fg = cb.violet, style = config.styles.includes },
-    Include = { fg = cb.violet, style = config.styles.includes },
-    PreProc = { fg = cb.violet, style = config.styles.includes },
-    PreCondit = { fg = cb.violet, style = config.styles.includes },
+    Define = { fg = cb.violet, style = none_to_upper(config.styles.includes) },
+    Include = { fg = cb.violet, style = none_to_upper(config.styles.includes) },
+    PreProc = { fg = cb.violet, style = none_to_upper(config.styles.includes) },
+    PreCondit = { fg = cb.violet, style = none_to_upper(config.styles.includes) },
 
     Label = { fg = cb.blue },
     Repeat = { fg = cb.blue },
@@ -127,7 +131,7 @@ theme.setup = function(config)
     Conditional = { fg = cb.blue },
 
     VariableBuiltin = { fg = cb.violet, style = "bold" },
-    Constant = { fg = cb.violet, style = config.styles.constants },
+    Constant = { fg = cb.violet, style = none_to_upper(config.styles.constants) },
 
     Number = { fg = cb.orange },
     Float = { link = "Number" },
@@ -140,11 +144,11 @@ theme.setup = function(config)
     SpecialChar = { fg = cb.magenta, style = "bold" },
 
     Field = { fg = cb.violet },
-    Argument = { fg = cb.light_magenta, style = config.styles.parameters },
+    Argument = { fg = cb.light_magenta, style = none_to_upper(config.styles.parameters) },
     Attribute = { fg = cb.light_magenta },
     Identifier = { fg = cb.light_magenta },
     Property = { fg = cb.magenta },
-    Function = { fg = cb.magenta, style = config.styles.functions },
+    Function = { fg = cb.magenta, style = none_to_upper(config.styles.functions) },
     FunctionBuiltin = { fg = cb.light_magenta, style = "bold" },
     Method = { fg = cb.magenta },
 

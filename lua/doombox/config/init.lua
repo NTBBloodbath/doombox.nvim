@@ -10,11 +10,11 @@ config.configuration = {
     terminal = true,
   },
   styles = {
-    comments = nil, -- "bold" | "italic" | nil
-    functions = nil, -- "bold" | "italic" | nil
-    parameters = nil, -- "bold" | "italic" | nil
-    includes = "bold", -- "bold" | "italic" | nil
-    constants = "bold", -- "bold" | "italic" | nil
+    comments = "none",   -- "bold" | "italic" | "none"
+    functions = "none",  -- "bold" | "italic" | "none"
+    parameters = "none", -- "bold" | "italic" | "none"
+    includes = "bold",   -- "bold" | "italic" | "none"
+    constants = "bold",  -- "bold" | "italic" | "none"
   },
   pumblend = {
     enable = true,
