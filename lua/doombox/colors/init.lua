@@ -14,7 +14,7 @@ colors.setup = function(config)
     bg_highlight = utils.lighten("#22262a", 0.2),
     fg = "#c7c0b3",
     fg_alt = utils.darken("#c7c0b3", 0.15),
-    black = "#1f2225",
+    black = "#3f444a",
     grey = "#6c7178",
     red = "#f46a66",
     green = "#a0ba65",
@@ -44,18 +44,9 @@ colors.setup = function(config)
     delete = utils.darken(base.red, 0.15),
   }
 
-  -- Diagnostics (errors, warnings, etc)
-  local diagnostics = {
-    error = base.red,
-    warning = base.yellow,
-    hint = base.cyan,
-    info = base.blue
-  }
-
   return {
     base = base,
     diff = diff,
-    diagnostics = diagnostics,
   }
 end
 

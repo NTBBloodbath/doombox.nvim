@@ -16,6 +16,7 @@ end
 
 theme.setup = function(user_configs)
   local config = require("doombox.config").set(user_configs or {})
+  local integrations = config.plugins_integrations
 
   -- Theme colors
   local c = require("doombox.colors").setup(config)
@@ -51,7 +52,7 @@ theme.setup = function(user_configs)
     IndentGuideEven = { link = "IndentGuide" },
     IndentGuideOdd = { link = "IndentGuide" },
 
-    TermCursor = { fg = cb.fg, style = "reverse" },
+    TermCursor = { link = "Cursor" },
     TermNormal = { link = "Normal" },
     TermNormalNC = { link = "TermNormal" },
 
@@ -174,6 +175,11 @@ theme.setup = function(user_configs)
     ErrorMsg = { link = "TextError" },
     ModeMsg = { link = "TextSpecial" },
     Todo = { fg = cb.yellow, style = "bold" },
+
+    MsgUnderline = { fg = cb.green, style = "underline" },
+    MoreMsgUnderline = { fg = cb.blue, style = "underline" },
+    ErrorMsgUnderline = { fg = cb.red, style = "underline" },
+    WarningMsgUnderline = { fg = cb.yellow, style = "underline" },
   }
 
   groups.diff = {
@@ -203,8 +209,53 @@ theme.setup = function(user_configs)
     markdownLinkText = { style = "underline" },
   }
 
+  groups.health = {
+    healthError = { link = "ErrorMsg" },
+    healthWarning = { link = "WarningMsg" },
+    healthSuccess = { link = "Msg" },
+  }
+
+  ----- LSP -------------------------------------
+  groups.lsp = {
+    LspReferenceText = { link = "LspHighlight" },
+    LspReferenceRead = { link = "LspHighlight" },
+    LspReferenceWrite = { link = "LspHighlight" },
+    
+    LspCodeLens = { link = "Comment" },
+    LspSignatureActiveParameter = { fg = cb.blue },
+
+    LspDiagnosticsFloatingHint = { link = "Msg" },
+    LspDiagnosticsFloatingError = { link = "ErrorMsg" },
+    LspDiagnosticsFloatingWarning = { link = "WarningMsg" },
+    LspDiagnosticsFloatingInformation = { link = "MoreMsg" },
+    LspDiagnosticsDefaultHint = { link = "Msg" },
+    LspDiagnosticsDefaultError = { link = "ErrorMsg" },
+    LspDiagnosticsDefaultWarning = { link = "WarningMsg" },
+    LspDiagnosticsDefaultInformation = { link = "MoreMsg" },
+    LspDiagnosticsDefaultHint = { link = "Msg" },
+    LspDiagnosticsVirtualTextHint = { link = "Msg" },
+    LspDiagnosticsVirtualTextError = { link = "ErrorMsg" },
+    LspDiagnosticsVirtualTextWarning = { link = "WarningMsg" },
+    LspDiagnosticsVirtualTextInformation = { link = "MoreMsg" },
+    LspDiagnosticsVirtualTextHint = { link = "Msg" },
+
+    LspDiagnosticsFloatingHint = { link = "Msg" },
+    LspDiagnosticsFloatingHint = { link = "Msg" },
+    LspDiagnosticsFloatingHint = { link = "Msg" },
+    LspDiagnosticsFloatingHint = { link = "Msg" },
+    LspDiagnosticsFloatingHint = { link = "Msg" },
+    LspDiagnosticsFloatingHint = { link = "Msg" },
+    LspDiagnosticsFloatingHint = { link = "Msg" },
+    LspDiagnosticsFloatingHint = { link = "Msg" },
+    LspDiagnosticsFloatingHint = { link = "Msg" },
+    LspDiagnosticsFloatingHint = { link = "Msg" },
+    LspDiagnosticsFloatingHint = { link = "Msg" },
+    LspDiagnosticsFloatingHint = { link = "Msg" },
+    LspDiagnosticsFloatingHint = { link = "Msg" },
+ }
+
   ----- PLUGINS ---------------------------------
-  if config.plugins_integrations.indent_blankline then
+  if integrations.indent_blankline then
     groups.plugins = vim.tbl_extend("force", groups.plugins, {
       IndentBlanklineChar = { fg = "#3f444a", style = "nocombine" },
       IndentBlanklineContextChar = { fg = "#3f444a", style = "nocombine" },
@@ -213,7 +264,25 @@ theme.setup = function(user_configs)
     })
   end
 
-  if config.plugins_integrations.treesitter then
+  if integrations.gitsigns then
+    groups.plugins = vim.tbl_extend("force", groups.plugins, {
+      GitSignsAdd = { link = "DiffAddedGutter" },
+      GitSignsChange = { link = "DiffModifiedGutter" },
+      GitSignsDelete = { link = "DiffRemovedGutter" },
+      GitSignsChangeDelete = { link = "DiffModifiedGutter" },
+    })
+  end
+
+  if integrations.dashboard then
+    groups.plugins = vim.tbl_extend("force", groups.plugins, {
+      dashboardHeader = { fg = cb.grey },
+      dashboardCenter = { fg = cb.blue },
+      dashboardShortcut = { fg = cb.violet },
+      dashboardFooter = { link = "dashboardHeader" },
+    })
+  end
+
+  if integrations.treesitter then
     groups.plugins = vim.tbl_extend("force", groups.plugins, {
       TSStrike = { fg = cb.dark_violet, style = "strikethrough" },
       TSException = { link = "Exception" },
