@@ -47,7 +47,7 @@ theme.setup = function(user_configs)
     SignColumn = { bg = cb.bg },
     ColorColumn = { cb.bg_highlight },
 
-    IndentGuide = { fg = cb.grey },
+    IndentGuide = { fg = "#3f444a" },
     IndentGuideEven = { link = "IndentGuide" },
     IndentGuideOdd = { link = "IndentGuide" },
 
@@ -139,12 +139,12 @@ theme.setup = function(user_configs)
     SpecialChar = { fg = cb.magenta, style = "bold" },
 
     Field = { fg = cb.violet },
-    Argument = { fg = cb.magenta, style = config.styles.parameters },
-    Attribute = { fg = cb.magenta },
-    Identifier = { fg = cb.magenta },
+    Argument = { fg = cb.light_magenta, style = config.styles.parameters },
+    Attribute = { fg = cb.light_magenta },
+    Identifier = { fg = cb.light_magenta },
     Property = { fg = cb.magenta },
     Function = { fg = cb.magenta, style = config.styles.functions },
-    FunctionBuiltin = { fg = cb.magenta, style = "bold" },
+    FunctionBuiltin = { fg = cb.light_magenta, style = "bold" },
     Method = { fg = cb.magenta },
 
     Type = { fg = cb.yellow },
@@ -206,10 +206,59 @@ theme.setup = function(user_configs)
   ----- PLUGINS ---------------------------------
   if config.plugins_integrations.indent_blankline then
     groups.plugins = vim.tbl_extend("force", groups.plugins, {
-      IndentBlanklineChar = {fg="#3f444a"},
-      IndentBlanklineContextChar ={fg=cb.grey,style="nocombine"},
-      IndentBlanklineSpaceChar ={fg=cb.grey,style="nocombine"},
-      IndentBlanklineSpaceCharBlankline ={fg=cb.grey,style="nocombine"},
+      IndentBlanklineChar = {fg="#3f444a", style="nocombine"},
+      IndentBlanklineContextChar ={fg="#3f444a",style="nocombine"},
+      IndentBlanklineSpaceChar ={fg="#3f444a",style="nocombine"},
+      IndentBlanklineSpaceCharBlankline ={fg="#3f444a",style="nocombine"},
+    })
+  end
+
+  if config.plugins_integrations.treesitter then
+    groups.plugins = vim.tbl_extend("force", groups.plugins, {
+      TSStrike = { fg = cb.dark_violet, style = "strikethrough" },
+      TSException = { link = "Exception" },
+      TSAnnotation = { link = "PreProc" },
+      TSAttribute = { link = "Attribute" },
+      TSConditional={ link = "Conditional"},
+      TSComment = { link = "Comment" },
+      TSConstructor={ link = "Structure" },
+      TSConstant = { link = "Exception" },
+      TSConstBuiltin={link = "Constant" },
+      TSConstMacro= { link = "Macro" },
+      TSError = { link = "Error" },
+      TSField = { link = "Field" },
+      TSFloat = { link = "Float" },
+      TSNumber = { link = "Number" },
+      TSFunction = { link = "Function" },
+      TSFuncBuiltin = { link = "FunctionBuiltin" },
+      TSFuncMacro = { link = "Macro" },
+      TSInclude = { link = "Include" },
+      TSKeyword = { link = "Keyword" },
+      TSKeywordFunction= { link = "KeywordFunction" },
+      TSLabel = { link = "Label" },
+      TSMethod = { link = "Method" },
+      TSNamespace = { link = "Directory" },
+      TSOperator = { link = "Operator" },
+      TSParameter = { link = "Argument" },
+      TSParameterReference = { link = "Argument" },
+      TSProperty = { link = "Property" },
+      TSPunctDelimiter = { link = "Delimiter" },
+      TSPunctBracket = { link = "Delimiter" },
+      TSPunctSpecial = { link = "Delimiter" },
+      TSRepeat = { link = "Repeat" },
+      TSString = { link = "String" },
+      TSStringRegex = { link = "StringDelimiter" },
+      TSStringEscape = { link = "StringDelimiter" },
+      TSTag = { link = "Tag" },
+      TSTagDelimiter = { link = "Delimiter" },
+      TSStrong = { link = "Bold" },
+      TSURI = { link = "URL" },
+      TSWarning = { link = "WarningMsg" },
+      TSDanger = { link = "ErrorMsg" },
+      TSType = { link = "Type" },
+      TSTypeBuiltin = { link = "TypeBuiltin" },
+      TSVariable = { link = "None" },
+      TSVariableBuiltin = { link = "VariableBuiltin" },
     })
   end
 

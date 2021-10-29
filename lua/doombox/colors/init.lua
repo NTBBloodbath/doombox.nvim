@@ -23,7 +23,9 @@ colors.setup = function(config)
     blue = "#67aec9",
     cyan = "#67c6c0",
     magenta = "#cc7fbc",
+    light_magenta = utils.lighten("#cc7fbc", 0.4),
     violet = "#be93be",
+    dark_violet = utils.darken("#be93be", 0.2),
     white = "#e6dbc5",
   }
 
