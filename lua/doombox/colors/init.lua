@@ -14,8 +14,7 @@ colors.setup = function(config)
     bg_highlight = utils.lighten("#22262a", 0.2),
     fg = "#c7c0b3",
     fg_alt = utils.darken("#c7c0b3", 0.15),
-    black = "#3f444a",
-    grey = "#6c7178",
+    grey = "#868C96",
     red = "#f46a66",
     green = "#a0ba65",
     orange = "#e0874b",
@@ -23,13 +22,13 @@ colors.setup = function(config)
     blue = "#67aec9",
     cyan = "#67c6c0",
     magenta = "#cc7fbc",
-    light_magenta = utils.lighten("#cc7fbc", 0.4),
+    light_magenta = utils.lighten("#cc7fbc", 0.2),
     violet = "#be93be",
-    dark_violet = utils.darken("#be93be", 0.2),
+    dark_violet = utils.darken("#be93be", 0.1),
     white = "#e6dbc5",
   }
 
-  base.border = base.black
+  base.border = base.grey
 
   -- Additional background colors
   base.bg_popup = base.bg_dark
