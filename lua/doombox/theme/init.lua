@@ -16,7 +16,7 @@ end
 
 theme.setup = function(user_configs)
   local config = require("doombox.config").set(user_configs or {})
-  local integrations = config.plugins_integrations
+  local integrations = config.integrations
 
   -- Theme colors
   local c = require("doombox.colors").setup(config)
@@ -43,8 +43,8 @@ theme.setup = function(user_configs)
     CursorLineNr = { fg = cb.fg, bg = cb.bg_highlight },
     CursorColumn = { bg = cb.bg_highlight },
 
-    Folded = { fg = cb.grey, bg = cb.bg_highlight },
-    FoldColumn = { fg = cb.fg_alt, cb.bg },
+    Folded = { fg = "#3f444a", bg = cb.bg_highlight },
+    FoldColumn = { fg = "#3f444a", bg = cb.bg },
     SignColumn = { bg = cb.bg },
     ColorColumn = { cb.bg_highlight },
 
@@ -268,6 +268,16 @@ theme.setup = function(user_configs)
   }
 
   ----- PLUGINS ---------------------------------
+  if integrations.neorg then
+    groups.plugins = vim.tbl_extend("force", groups.plugins, {
+      Blue = { fg = cb.cyan },
+      Yellow = { fg = cb.yellow },
+      Red = { fg = cb.red },
+      Green = { fg = cb.green },
+      Brown = { fg = cb.orange },
+    })
+  end
+
   if integrations.indent_blankline then
     groups.plugins = vim.tbl_extend("force", groups.plugins, {
       IndentBlanklineChar = { fg = "#3f444a", style = "nocombine" },
@@ -292,6 +302,40 @@ theme.setup = function(user_configs)
       dashboardCenter = { fg = cb.blue },
       dashboardShortcut = { fg = cb.violet },
       dashboardFooter = { link = "dashboardHeader" },
+    })
+  end
+
+  if integrations.whichkey then
+    groups.plugins = vim.tbl_extend("force", groups.plugins, {
+      WhichKey = { fg = cb.blue },
+      WhichKeyGroup = { fg = cb.magenta },
+      WhichKeyDesc = { fg = cb.magenta },
+      WhichKeySeparator = { link = "Separator" },
+      WhichKeyFloat = { bg = cb.bg_float },
+      WhichKeyValue = { fg = cb.grey },
+    })
+  end
+
+  if integrations.nvim_tree then
+    groups.plugins = vim.tbl_extend("force", groups.plugins, {
+      NvimTreeFolderName = { fg = cb.blue, style = "bold" },
+      NvimTreeRootFolder = { fg = cb.green, style = "bold" },
+      NvimTreeEmptyFolderName = { fg = cb.fg_alt, style = "bold" },
+      NvimTreeSymlink = { fg = cb.violet, style = "underline" },
+      NvimTreeExecFile = { fg = cb.green, style = "bold" },
+      NvimTreeImageFile = { fg = cb.blue },
+      NvimTreeOpenedFile = { fg = cb.fg_alt },
+      NvimTreeSpecialFile = { fg = cb.yellow, style = "underline" },
+
+      NvimTreeNormal = { bg = cb.bg_sidebar },
+      NvimTreeNormalNC = { bg = cb.bg_sidebar },
+      NvimTreeEndOfBuffer = { fg = cb.bg_sidebar, bg = cb.bg_sidebar },
+    })
+  end
+
+  if integrations.vim_illuminate then
+    groups.plugins = vim.tbl_extend("force", groups.plugins, {
+      illuminatedWord = { style = "underline" },
     })
   end
 

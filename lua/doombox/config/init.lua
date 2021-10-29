@@ -20,16 +20,13 @@ config.configuration = {
     enable = true,
     transparency_amount = 20,
   },
-  plugins_integrations = {
-    barbar = true,
+  integrations = {
     dashboard = true,
     gitsigns = true,
     indent_blankline = true,
     neogit = true,
     neorg = true,
-    netrw = true,
     nvim_tree = true,
-    startify = true,
     telescope = false,
     treesitter = true,
     vim_illuminate = true,
