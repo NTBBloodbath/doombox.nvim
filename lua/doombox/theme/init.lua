@@ -118,7 +118,7 @@ theme.setup = function(user_configs)
     Label = { fg = cb.blue },
     Repeat = { fg = cb.blue },
     Keyword = { fg = cb.blue },
-    KeywordBuiltin = { fg = cb.blue, style = "bold" },
+    KeywordFUnction = { fg = cb.blue, style = "bold" },
     Operator = { fg = cb.blue },
     Delimiter = { link = "Operator" },
     Statement = { fg = cb.blue },
@@ -206,10 +206,10 @@ theme.setup = function(user_configs)
   ----- PLUGINS ---------------------------------
   if config.plugins_integrations.indent_blankline then
     groups.plugins = vim.tbl_extend("force", groups.plugins, {
-      IndentBlanklineChar = {fg="#3f444a", style="nocombine"},
-      IndentBlanklineContextChar ={fg="#3f444a",style="nocombine"},
-      IndentBlanklineSpaceChar ={fg="#3f444a",style="nocombine"},
-      IndentBlanklineSpaceCharBlankline ={fg="#3f444a",style="nocombine"},
+      IndentBlanklineChar = { fg = "#3f444a", style = "nocombine" },
+      IndentBlanklineContextChar = { fg = "#3f444a", style = "nocombine" },
+      IndentBlanklineSpaceChar = { fg = "#3f444a", style = "nocombine" },
+      IndentBlanklineSpaceCharBlankline = { fg = "#3f444a", style = "nocombine" },
     })
   end
 
@@ -219,12 +219,12 @@ theme.setup = function(user_configs)
       TSException = { link = "Exception" },
       TSAnnotation = { link = "PreProc" },
       TSAttribute = { link = "Attribute" },
-      TSConditional={ link = "Conditional"},
+      TSConditional = { link = "Conditional" },
       TSComment = { link = "Comment" },
-      TSConstructor={ link = "Structure" },
+      TSConstructor = { link = "Structure" },
       TSConstant = { link = "Exception" },
-      TSConstBuiltin={link = "Constant" },
-      TSConstMacro= { link = "Macro" },
+      TSConstBuiltin = { link = "Constant" },
+      TSConstMacro = { link = "Macro" },
       TSError = { link = "Error" },
       TSField = { link = "Field" },
       TSFloat = { link = "Float" },
@@ -234,7 +234,7 @@ theme.setup = function(user_configs)
       TSFuncMacro = { link = "Macro" },
       TSInclude = { link = "Include" },
       TSKeyword = { link = "Keyword" },
-      TSKeywordFunction= { link = "KeywordFunction" },
+      TSKeywordFunction = { link = "KeywordFunction" },
       TSLabel = { link = "Label" },
       TSMethod = { link = "Method" },
       TSNamespace = { link = "Directory" },
